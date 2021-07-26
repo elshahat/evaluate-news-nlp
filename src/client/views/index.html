@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Sentiment Analyze</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>Sentient Analyzer</header>
+
+<main>
+    <div class="search-header">Enter the URL of the article/blog to analyze its sentiment.</div>
+
+    <div class="search-form">
+        <form onsubmit="Client.handleSubmit(event)">
+            <input id="url" type="text" name="input" value="" placeholder="Enter URL here">
+            <button id="form-submit" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div id="loading">Loading Data....</div>
+
+    <div id="search-results">
+        <h1>Sentient Analyzer Results:</h1>
+        <ul>
+            <li id="polarity"></li>
+            <li id="agreement"></li>
+            <li id="subjectivity"></li>
+            <li id="confidence"></li>
+            <li id="irony"></li>
+        </ul>
+    </div>
+</main>
+
+<footer>© 2021 Ahmed ElShahat</footer>
+
+<script>
+    // Check is service workers are supported in the browser
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js');
+        });
+    }
+</script>
+</body>
+</html>
